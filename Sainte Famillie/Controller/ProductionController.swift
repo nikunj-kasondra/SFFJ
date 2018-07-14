@@ -12,7 +12,8 @@ class ProductionController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +22,35 @@ class ProductionController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func btnPublication(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "PublicationController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
     }
-    */
+    
+    @IBAction func btnBackClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnPain(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "TalentController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
+    @IBAction func btnDesProf(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "ProdProfController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
+    
+    @IBAction func btnDes(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "ProductionsDesController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
+    
+    @IBAction func btnLivre(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "LivreController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
+    
+    
+    
 
 }

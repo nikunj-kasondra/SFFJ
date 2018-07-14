@@ -12,7 +12,8 @@ class LeCollegeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +22,38 @@ class LeCollegeController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func btnBackClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
-    */
 
+    @IBAction func btnOrganimee(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "OrganigrammeController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
+    @IBAction func btnEstablisment(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "ProjetdEtablissementController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
+    @IBAction func btnEducatif(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "ProjetEducatifController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
+    @IBAction func btnHistorie(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "HistoireDetailController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
+    @IBAction func btnPresentation(_ sender: Any) {
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "PresentationDetailController")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
+
+    @IBAction func btnDemand(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "http://sainte-famille.edu.lb/Emploi/Login/100")!)
+    }
+    @IBAction func btnAdmision(_ sender: Any) {
+        
+        let VC = Common.storyboard.instantiateViewController(withIdentifier: "AdmissionsVC")
+        Navigation.push_POP_to_ViewController(destinationVC: VC, navigationsController: Common.navigationController, isAnimated: true)
+    }
 }
+

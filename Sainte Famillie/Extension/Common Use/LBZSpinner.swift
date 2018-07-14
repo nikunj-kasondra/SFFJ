@@ -2,36 +2,36 @@
 //  LBZSpinner.swift
 //  LBZSpinner
 //
-//  Created by leBzul on 18/02/2016.
+//  Created by LeBzul on 18/02/2016.
 //  Customized by dip kasyap dpd.ghimire@gmail.com
 //************ dip added type ********/
-//  Copyright © 2016 leBzul. All rights reserved.
+//  Copyright © 2016 LeBzul. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-enum SpinnerType: Int {
+enum SpinnerType:Int {
     case dip = 0
-    case leBzul = 1
+    case LeBzul = 1
 }
 
-@IBDesignable class LBZSpinner: UIView, UITableViewDelegate, UITableViewDataSource {
+@IBDesignable class LBZSpinner : UIView, UITableViewDelegate, UITableViewDataSource {
     
-    fileprivate var firstDraw: Bool = true
+    fileprivate var firstDraw:Bool = true
     
-    let heightTableviewCell: CGFloat = 45
-    var heightTableview: CGFloat = 200
+    let heightTableviewCell:CGFloat = 45
+    var heightTableview:CGFloat = 200
     
     //public variable
-    static var index = 0
+    static var INDEX_NOTHING = 0
     
     //spinner
-    @IBInspectable var textFont: UIFont = UIFont.init(name: "Rubrik-Regular", size: 17.0)! { didSet { updateUI() } }
-    @IBInspectable var textColor: UIColor = UIColor.black { didSet { updateUI() } }
-    @IBInspectable var lineColor: UIColor = UIColor.black { didSet { updateUI() } }
-    @IBInspectable var list:[String]  = [String]() { didSet { updateUI() } }
-    @IBInspectable var text: String = "" { didSet { updateUI() } }
+    @IBInspectable var textFont: UIFont = UIFont.systemFont(ofSize: 19.0) { didSet{ updateUI() } }
+    @IBInspectable var textColor: UIColor = UIColor.gray { didSet{ updateUI() } }
+    @IBInspectable var lineColor: UIColor = UIColor.gray { didSet{ updateUI() } }
+    @IBInspectable var list:[String]  = [String]() { didSet{ updateUI() } }
+    @IBInspectable var text: String = "" { didSet{ updateUI() } }
     
     //spinner type
     @IBInspectable var type: Int =  SpinnerType.dip.rawValue { didSet{ updateUI() } }
@@ -40,9 +40,9 @@ enum SpinnerType: Int {
     //Drop down list
     @IBInspectable var dDLMaxSize: CGFloat = 200
     @IBInspectable var dDLColor: UIColor = UIColor.white
-    @IBInspectable var dDLTextColor: UIColor = UIColor.black
+    @IBInspectable var dDLTextColor: UIColor = UIColor.gray
     @IBInspectable var dDLStroke: Bool = true
-    @IBInspectable var dDLStrokeColor: UIColor = UIColor.black
+    @IBInspectable var dDLStrokeColor: UIColor = UIColor.gray
     @IBInspectable var dDLStrokeSize: CGFloat = 1
     
     
@@ -50,13 +50,13 @@ enum SpinnerType: Int {
     @IBInspectable var dDLblurEnable: Bool = true
     
     
-    var delegate: LBZSpinnerDelegate!
+    var delegate:LBZSpinnerDelegate!
     
     //actual seleted index
-    fileprivate(set) internal var selectedIndex = index
+    fileprivate(set) internal var selectedIndex = INDEX_NOTHING
     
     fileprivate var labelValue: UILabel!
-    fileprivate var blurEffectView: UIVisualEffectView!
+    fileprivate var blurEffectView:UIVisualEffectView!
     fileprivate var viewChooseDisable: UIView!
     fileprivate var tableviewChoose: UITableView!
     fileprivate var tableviewChooseShadow: UIView!
@@ -108,14 +108,14 @@ enum SpinnerType: Int {
         drawCanvas(frame: rect)
     }
     
-    func changeSelectedIndex(_ index: Int) {
+    func changeSelectedIndex(_ index:Int) {
         if list.count > index {
             selectedIndex = index
             text = list[selectedIndex]
             updateUI()
             
             if (delegate != nil) {
-                delegate.spinnerChoose(self, index: selectedIndex, value: list[selectedIndex])
+                delegate.spinnerChoose(self,index:selectedIndex, value: list[selectedIndex])
             }
         }
     }
@@ -130,14 +130,14 @@ enum SpinnerType: Int {
     }
     
     //Config spinner style
-    func decoratedSpinner(_ textColor: UIColor!, lineColor: UIColor!, text: String!) {
+    func decoratedSpinner(_ textColor:UIColor!,lineColor:UIColor!,text:String!) {
         if(textColor != nil) { self.textColor=textColor }
         if(lineColor != nil) { self.lineColor=lineColor }
         if(text != nil) { self.text=text }
     }
     
     //Config drop down list style
-    func decoratedDropDownList(_ backgroundColor: UIColor!, textColor: UIColor!, withStroke: Bool!, strokeSize: CGFloat!, strokeColor: UIColor!) {
+    func decoratedDropDownList(_ backgroundColor:UIColor!,textColor:UIColor!,withStroke:Bool!,strokeSize:CGFloat!,strokeColor:UIColor!) {
         
         if(backgroundColor != nil) { dDLColor=backgroundColor }
         if(textColor != nil) { dDLTextColor=textColor }
@@ -148,8 +148,8 @@ enum SpinnerType: Int {
     
     
     //Update drop down list
-    func updateList(_ list: [String]) {
-        self.list = list
+    func updateList(_ list:[String]) {
+        self.list = list;
         heightTableview = heightTableviewCell*CGFloat(list.count)
         if(tableviewChoose != nil) {
             tableviewChoose.reloadData()
@@ -158,7 +158,7 @@ enum SpinnerType: Int {
     
     
     //Open spinner animation
-    func openSpinner(_ sender: UITapGestureRecognizer) {
+    func openSpinner(_ sender:UITapGestureRecognizer){
         
         heightTableview = heightTableviewCell*CGFloat(list.count)
         let parentView = findLastUsableSuperview()
@@ -203,7 +203,7 @@ enum SpinnerType: Int {
         
         // expand bottom animation
         if (expandBottomDirection) {
-            tableviewChoose = UITableView(frame:  CGRect(x: globalPoint.x, y: globalPoint.y, width: frame.size.width, height: 0))
+            tableviewChoose = UITableView(frame:  CGRect(x: globalPoint.x , y: globalPoint.y, width: frame.size.width, height: 0))
             tableviewChooseShadow = UIView(frame: tableviewChoose.frame)
             
             UIView.animate(withDuration: 0.3,
@@ -225,7 +225,7 @@ enum SpinnerType: Int {
             // expand top animation
         else {
             
-            tableviewChoose = UITableView(frame:  CGRect(x: globalPoint.x, y: globalPoint.y, width: frame.size.width, height: self.frame.height))
+            tableviewChoose = UITableView(frame:  CGRect(x: globalPoint.x , y: globalPoint.y, width: frame.size.width, height: self.frame.height))
             tableviewChooseShadow = UIView(frame: tableviewChoose.frame)
             
             UIView.animate(withDuration: 0.3,
@@ -267,9 +267,9 @@ enum SpinnerType: Int {
         
         // config shadow drop down list
         tableviewChooseShadow.backgroundColor = dDLColor
-        tableviewChooseShadow.layer.shadowOpacity = 0.5
-        tableviewChooseShadow.layer.shadowOffset = CGSize(width: 3, height: 3)
-        tableviewChooseShadow.layer.shadowRadius = 5
+        tableviewChooseShadow.layer.shadowOpacity = 0.5;
+        tableviewChooseShadow.layer.shadowOffset = CGSize(width: 3, height: 3);
+        tableviewChooseShadow.layer.shadowRadius = 5;
         tableviewChooseShadow.layer.cornerRadius = 5
         tableviewChooseShadow.layer.masksToBounds = false
         tableviewChooseShadow.clipsToBounds = false
@@ -344,8 +344,8 @@ enum SpinnerType: Int {
             let traingle = UIBezierPath()
             
             //make three points
-            let hMargin: CGFloat = 10.0
-            let vMargin: CGFloat = frame.height/3
+            let hMargin:CGFloat = 10.0
+            let vMargin:CGFloat = frame.height/3
             
             //with of traingle
             let tWidth = frame.height - 2*vMargin
@@ -363,15 +363,15 @@ enum SpinnerType: Int {
             
             break
             
-        case SpinnerType.leBzul.rawValue :
+        case SpinnerType.LeBzul.rawValue :
             
             bezierPath.move(to: CGPoint(x: frame.maxX - 11, y: frame.maxY))
             bezierPath.addLine(to: CGPoint(x: frame.maxX, y: frame.maxY))
             bezierPath.addLine(to: CGPoint(x: frame.maxX, y: frame.maxY - 11))
             bezierPath.addLine(to: CGPoint(x: frame.maxX - 11, y: frame.maxY))
             bezierPath.close()
-            bezierPath.lineCapStyle = .square
-            bezierPath.lineJoinStyle = .bevel
+            bezierPath.lineCapStyle = .square;
+            bezierPath.lineJoinStyle = .bevel;
             
             lineColor.setFill()
             bezierPath.fill()
@@ -388,7 +388,8 @@ enum SpinnerType: Int {
         
     }
     
-    func orientationChanged() {
+    func orientationChanged()
+    {
         /*
          if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
          {}
@@ -404,7 +405,7 @@ enum SpinnerType: Int {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         labelValue.text = list[indexPath.row]
         if (delegate != nil) {
-            delegate.spinnerChoose(self, index: indexPath.row, value: list[indexPath.row])
+            delegate.spinnerChoose(self,index: indexPath.row, value: list[indexPath.row])
         }
         selectedIndex = indexPath.row
         closeSpinner()
@@ -429,6 +430,6 @@ enum SpinnerType: Int {
 }
 
 
-protocol LBZSpinnerDelegate {
-    func spinnerChoose(_ spinner: LBZSpinner, index: Int, value: String)
+protocol LBZSpinnerDelegate{
+    func spinnerChoose(_ spinner:LBZSpinner, index:Int,value:String)
 }

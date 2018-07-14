@@ -10,6 +10,7 @@ import UIKit
 
 class LivreCell: UITableViewCell {
 
+    @IBOutlet weak var lblLibre: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

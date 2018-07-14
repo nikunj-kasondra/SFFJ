@@ -9,7 +9,9 @@
 import UIKit
 
 class FishesCell: UITableViewCell {
+    @IBOutlet weak var lblDate: UILabel!
 
+    @IBOutlet weak var lblDesc: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

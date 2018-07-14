@@ -12,7 +12,8 @@ class LocateUsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         // Do any additional setup after loading the view.
     }
 
@@ -20,16 +21,14 @@ class LocateUsController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func btnBackClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
-    */
-
+    
+    @IBAction func btnMapClicked(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "https://www.google.com/maps/@33.983209,35.63253,17z?hl=en-US")!)
+    }
+    
+    
 }

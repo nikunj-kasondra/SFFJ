@@ -10,6 +10,8 @@ import UIKit
 
 class CharteCell: UITableViewCell {
 
+    @IBOutlet weak var lblLink: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ReachabilitySwift
+
 class Alert: NSObject {
     
     // MARK: General Alert

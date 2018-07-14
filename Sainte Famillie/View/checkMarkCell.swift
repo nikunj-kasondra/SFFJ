@@ -10,6 +10,8 @@ import UIKit
 
 class checkMarkCell: UITableViewCell {
 
+    @IBOutlet weak var lblCheckMarkId: UILabel!
+    @IBOutlet weak var imgCheckMark: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

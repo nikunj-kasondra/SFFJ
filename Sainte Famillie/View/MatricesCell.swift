@@ -10,6 +10,10 @@ import UIKit
 
 class MatricesCell: UITableViewCell {
 
+    @IBOutlet weak var btnDelete: UIButton!
+    @IBOutlet weak var btnAnnouncement: UIButton!
+    @IBOutlet weak var btnAgenda: UIButton!
+    @IBOutlet weak var lblName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

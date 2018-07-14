@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 class PageItemController: UIViewController {
     
+    @IBOutlet weak var btnImg: UIButton!
     // MARK: - Variables
     var itemIndex: Int = 0
     var imageName: String = "" {
@@ -17,7 +18,7 @@ class PageItemController: UIViewController {
         didSet {
             
             if let imageView = contentImageView {
-                    let url1 = "http://aamchit.com/images/news/" + imageName
+                    let url1 = "http://sainte-famille.edu.lb/Upfiles/Photos/Large/" + imageName
                     imageView.kf.setImage(with: URL(string:url1), placeholder:UIImage(named:""), options: nil, progressBlock: nil, completionHandler:nil)
             }
             
@@ -29,8 +30,34 @@ class PageItemController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         contentImageView!.image = UIImage(named: imageName)
-        let url1 = Tab1Image.link + imageName
-        contentImageView?.kf.setImage(with: URL(string:url1), placeholder:UIImage(named:""), options: nil, progressBlock: nil, completionHandler:nil)
+        if NewsController.videoId == "" {
+            let url1 = "http://sainte-famille.edu.lb/Upfiles/Photos/Large/" + imageName
+            contentImageView?.kf.setImage(with: URL(string:url1), placeholder:UIImage(named:""), options: nil, progressBlock: nil, completionHandler:nil)
+        } else {
+            if itemIndex < NewsDetailController.finalCount - 1 {
+                let url1 = "http://sainte-famille.edu.lb/Upfiles/Photos/Large/" + imageName
+                contentImageView?.kf.setImage(with: URL(string:url1), placeholder:UIImage(named:""), options: nil, progressBlock: nil, completionHandler:nil)
+            } else {
+                let imageStr = (((imageName.components(separatedBy: "?") as! NSArray).object(at: 1) as! String).components(separatedBy: "=") as! NSArray).object(at: 1) as! String
+                
+                let url1 = "https://img.youtube.com/vi/\(imageStr)/0.jpg"
+                contentImageView?.kf.setImage(with: URL(string:url1), placeholder:UIImage(named:""), options: nil, progressBlock: nil, completionHandler:nil)
+            }
+            
+        }
+        
+    }
+    
+    
+    @IBAction func btnImage(_ sender: Any) {
+        
+        let notificationName = Notification.Name("NotificationIdentifier")
+        
+        // Post notification
+        NotificationCenter.default.post(name: notificationName, object: nil)
+        
     }
 }

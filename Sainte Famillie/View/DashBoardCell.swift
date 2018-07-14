@@ -10,4 +10,6 @@ import UIKit
 
 class DashBoardCell: UICollectionViewCell {
     
+    @IBOutlet weak var imgDash: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
 }

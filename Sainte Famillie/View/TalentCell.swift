@@ -10,4 +10,6 @@ import UIKit
 
 class TalentCell: UICollectionViewCell {
     
+    @IBOutlet weak var lblTal: UILabel!
+    @IBOutlet weak var imgTal: UIImageView!
 }

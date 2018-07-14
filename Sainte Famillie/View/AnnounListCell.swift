@@ -10,6 +10,11 @@ import UIKit
 
 class AnnounListCell: UITableViewCell {
 
+    @IBOutlet weak var btnDelete: UIButton!
+    @IBOutlet weak var btnEye: UIButton!
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblDetail: UILabel!
+    @IBOutlet weak var lblSubject: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

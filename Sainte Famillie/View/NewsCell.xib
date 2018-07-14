@@ -1,10 +1,62 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newCell" id="Sbh-dP-QiJ" customClass="NewsCell" customModule="Sainte_Famillie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="116" height="175"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="116" height="175"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wra-Ll-ERQ">
+                        <rect key="frame" x="0.0" y="0.0" width="116" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="gTa-0n-O0B"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw5-1s-pPi">
+                        <rect key="frame" x="3" y="105" width="110" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ0-dc-Btu">
+                        <rect key="frame" x="3" y="110" width="110" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="xw5-1s-pPi" secondAttribute="trailing" constant="3" id="0dF-gn-sRm"/>
+                <constraint firstAttribute="trailing" secondItem="wra-Ll-ERQ" secondAttribute="trailing" id="34w-WW-8wk"/>
+                <constraint firstItem="aZ0-dc-Btu" firstAttribute="leading" secondItem="Sbh-dP-QiJ" secondAttribute="leading" constant="3" id="7gp-EO-5hW"/>
+                <constraint firstAttribute="trailing" secondItem="aZ0-dc-Btu" secondAttribute="trailing" constant="3" id="IQT-7y-m1E"/>
+                <constraint firstItem="xw5-1s-pPi" firstAttribute="top" secondItem="wra-Ll-ERQ" secondAttribute="bottom" constant="5" id="TQd-Rs-lYS"/>
+                <constraint firstAttribute="bottom" secondItem="aZ0-dc-Btu" secondAttribute="bottom" priority="250" constant="3" id="XXf-8l-0ac"/>
+                <constraint firstItem="wra-Ll-ERQ" firstAttribute="top" secondItem="Sbh-dP-QiJ" secondAttribute="top" id="ZcU-HI-Ul2"/>
+                <constraint firstItem="wra-Ll-ERQ" firstAttribute="leading" secondItem="Sbh-dP-QiJ" secondAttribute="leading" id="jPf-Al-b1c"/>
+                <constraint firstItem="xw5-1s-pPi" firstAttribute="leading" secondItem="Sbh-dP-QiJ" secondAttribute="leading" constant="3" id="k4z-1u-uzW"/>
+                <constraint firstItem="aZ0-dc-Btu" firstAttribute="top" secondItem="xw5-1s-pPi" secondAttribute="bottom" constant="5" id="yDv-kk-TV7"/>
+            </constraints>
+            <size key="customSize" width="116" height="175"/>
+            <connections>
+                <outlet property="imgNews" destination="wra-Ll-ERQ" id="rzw-VQ-lEj"/>
+                <outlet property="lblDate" destination="aZ0-dc-Btu" id="vyU-oK-9u8"/>
+                <outlet property="lblNews" destination="xw5-1s-pPi" id="JhH-u3-oxP"/>
+            </connections>
+            <point key="canvasLocation" x="40" y="61.5"/>
+        </collectionViewCell>
     </objects>
 </document>

@@ -1,10 +1,52 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newCell" id="7He-Uh-ZgW" customClass="TalentCell" customModule="Sainte_Famillie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="116" height="175"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="116" height="175"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5uk-hM-stz">
+                        <rect key="frame" x="0.0" y="0.0" width="116" height="116"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="116" id="1cx-al-e1j"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsc-0N-tJa">
+                        <rect key="frame" x="3" y="121" width="110" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="5uk-hM-stz" firstAttribute="leading" secondItem="7He-Uh-ZgW" secondAttribute="leading" id="SjW-Xa-Uql"/>
+                <constraint firstAttribute="trailing" secondItem="Wsc-0N-tJa" secondAttribute="trailing" constant="3" id="SvO-Pt-haW"/>
+                <constraint firstItem="Wsc-0N-tJa" firstAttribute="leading" secondItem="7He-Uh-ZgW" secondAttribute="leading" constant="3" id="YdY-t3-G7A"/>
+                <constraint firstItem="5uk-hM-stz" firstAttribute="top" secondItem="7He-Uh-ZgW" secondAttribute="top" id="n4T-BF-6j7"/>
+                <constraint firstItem="Wsc-0N-tJa" firstAttribute="top" secondItem="5uk-hM-stz" secondAttribute="bottom" constant="5" id="yOq-hU-2Ip"/>
+                <constraint firstAttribute="trailing" secondItem="5uk-hM-stz" secondAttribute="trailing" id="yVe-8Y-IdW"/>
+                <constraint firstAttribute="bottom" secondItem="Wsc-0N-tJa" secondAttribute="bottom" priority="250" id="yop-e7-NqT"/>
+            </constraints>
+            <size key="customSize" width="116" height="175"/>
+            <connections>
+                <outlet property="imgTal" destination="5uk-hM-stz" id="x7H-aI-qSo"/>
+                <outlet property="lblTal" destination="Wsc-0N-tJa" id="nEk-tU-DLy"/>
+            </connections>
+            <point key="canvasLocation" x="40" y="61.5"/>
+        </collectionViewCell>
     </objects>
 </document>

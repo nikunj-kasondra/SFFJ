@@ -9,5 +9,6 @@
 import UIKit
 
 class LoginDashCell: UICollectionViewCell {
+    @IBOutlet weak var lblName: UILabel!
     
 }

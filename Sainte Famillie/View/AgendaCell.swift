@@ -10,6 +10,10 @@ import UIKit
 
 class AgendaCell: UITableViewCell {
 
+    @IBOutlet weak var btnDelete: UIButton!
+    @IBOutlet weak var btnEye: UIButton!
+    @IBOutlet weak var lblDetail: UILabel!
+    @IBOutlet weak var lblSubject: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
